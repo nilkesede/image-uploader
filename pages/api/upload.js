@@ -15,9 +15,7 @@ const upload = promisify(multer({
     bucket: process.env.BUCKET_NAME,
     acl: 'public-read',
     contentType: multerS3.AUTO_CONTENT_TYPE,
-    key(_, __, cb) {
-      cb(null, Date.now().toString())
-    }
+    key: (_, __, cb) => cb(null, Date.now().toString())
   })
 }).single('file'))
 

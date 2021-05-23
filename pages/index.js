@@ -32,9 +32,7 @@ export default function Upload() {
         type="file"
         accept="image/png, image/jpeg"
       />
-      {url && (
-        <p><a href={url} target="_blank">{url}</a></p>
-      )}
+      {url && <p><img src={url} width="500" /></p>}
     </>
   );
 }
