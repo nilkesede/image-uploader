@@ -1,21 +1,23 @@
+import {useState} from 'react'
+
 export default function Upload() {
+  const [url, setUrl] = useState()
+
   const uploadPhoto = async (e) => {
+    setUrl('')
+
     const file = e.target.files[0];
-    const filename = encodeURIComponent(file.name);
-    const res = await fetch(`/api/upload-url?file=${filename}`);
-    const { url, fields } = await res.json();
     const formData = new FormData();
+    formData.append('file', file);
 
-    Object.entries({ ...fields, file }).forEach(([key, value]) => {
-      formData.append(key, value);
-    });
-
-    const upload = await fetch(url, {
+    const response = await fetch('/api/upload', {
       method: 'POST',
       body: formData,
     });
 
-    if (upload.ok) {
+    if (response.ok) {
+      const { data } = await response.json()
+      setUrl(data)
       console.log('Uploaded successfully!');
     } else {
       console.error('Upload failed.');
@@ -30,6 +32,9 @@ export default function Upload() {
         type="file"
         accept="image/png, image/jpeg"
       />
+      {url && (
+        <p><a href={url} target="_blank">{url}</a></p>
+      )}
     </>
   );
 }
