@@ -1,4 +1,4 @@
-import {promisify} from 'util'
+import { promisify } from 'util'
 import AWS from 'aws-sdk'
 import multer from 'multer'
 import multerS3 from 'multer-s3'
@@ -9,20 +9,22 @@ AWS.config.update({
   region: process.env.REGION
 })
 
-const upload = promisify(multer({
-  storage: multerS3({
-    s3: new AWS.S3(),
-    bucket: process.env.BUCKET_NAME,
-    acl: 'public-read',
-    contentType: multerS3.AUTO_CONTENT_TYPE,
-    key: (_, __, cb) => cb(null, Date.now().toString())
-  })
-}).single('file'))
+const upload = promisify(
+  multer({
+    storage: multerS3({
+      s3: new AWS.S3(),
+      bucket: process.env.BUCKET_NAME,
+      acl: 'public-read',
+      contentType: multerS3.AUTO_CONTENT_TYPE,
+      key: (_, __, cb) => cb(null, Date.now().toString())
+    })
+  }).single('file')
+)
 
 export const config = {
   api: {
-    bodyParser: false,
-  },
+    bodyParser: false
+  }
 }
 
 export default async function handler(req, res) {

@@ -1,28 +1,30 @@
-import {useState} from 'react'
+import { useState } from 'react'
 
 export default function Upload() {
+  const [response, setResponse] = useState()
   const [url, setUrl] = useState()
 
-  const uploadPhoto = async (e) => {
+  const uploadPhoto = async e => {
+    setResponse('')
     setUrl('')
 
-    const file = e.target.files[0];
-    const formData = new FormData();
-    formData.append('file', file);
+    const file = e.target.files[0]
+    const formData = new FormData()
+    formData.append('file', file)
 
-    const response = await fetch('/api/upload', {
+    const resp = await fetch('/api/upload', {
       method: 'POST',
-      body: formData,
-    });
+      body: formData
+    })
 
-    if (response.ok) {
-      const { data } = await response.json()
+    if (resp.ok) {
+      const { data } = await resp.json()
+      setResponse('success')
       setUrl(data)
-      console.log('Uploaded successfully!');
     } else {
-      console.error('Upload failed.');
+      setResponse('error')
     }
-  };
+  }
 
   return (
     <>
@@ -32,7 +34,12 @@ export default function Upload() {
         type="file"
         accept="image/png, image/jpeg"
       />
-      {url && <p><img src={url} width="500" /></p>}
+      {response && <p>{response}</p>}
+      {url && (
+        <p>
+          <img src={url} alt="uploaded" width="500" />
+        </p>
+      )}
     </>
-  );
+  )
 }
