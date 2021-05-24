@@ -1,4 +1,6 @@
 {
+  "name": "short-url",
+  "version": "0.0.1",
   "scripts": {
     "build": "next build",
     "dev": "next dev",
