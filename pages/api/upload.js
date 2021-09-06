@@ -2,6 +2,7 @@ import { promisify } from 'util'
 import AWS from 'aws-sdk'
 import multer from 'multer'
 import multerS3 from 'multer-s3'
+import { v4 as uuid } from 'uuid'
 
 AWS.config.update({
   accessKeyId: process.env.ACCESS_KEY,
@@ -16,7 +17,7 @@ const upload = promisify(
       bucket: process.env.BUCKET_NAME,
       acl: 'public-read',
       contentType: multerS3.AUTO_CONTENT_TYPE,
-      key: (_, __, cb) => cb(null, Date.now().toString())
+      key: (_, __, cb) => cb(null, uuid())
     })
   }).single('file')
 )
