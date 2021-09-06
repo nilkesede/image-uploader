@@ -1,8 +1,8 @@
 import { useState } from 'react'
 
 export default function Upload() {
-  const [response, setResponse] = useState()
-  const [url, setUrl] = useState()
+  const [response, setResponse] = useState('')
+  const [url, setUrl] = useState('')
 
   const uploadPhoto = async e => {
     setResponse('')
