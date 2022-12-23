@@ -10,4 +10,4 @@ script:
   - npm test
 after_script:
   - ./cc-test-reporter format-coverage -t lcov ./tests/coverage/lcov.info
-  - ./cc-test-reporter upload-coverage
+  - ./cc-test-reporter upload-coverage -i ./tests/coverage/coverage-final.json
