@@ -1,8 +1,15 @@
-module.exports = {
-  bail: true,
+const nextJest = require('next/jest')
+
+const createJestConfig = nextJest({
+  dir: './'
+})
+
+const customJestConfig = {
   collectCoverage: true,
   coverageDirectory: 'tests/coverage',
   coveragePathIgnorePatterns: ['./node_modules'],
-  setupFiles: ['./tests/_setup.mjs'],
-  testEnvironment: 'node'
+  moduleDirectories: ['node_modules', '<rootDir>/'],
+  testEnvironment: 'jest-environment-jsdom'
 }
+
+module.exports = createJestConfig(customJestConfig)
