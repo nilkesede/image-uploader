@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders homepage unchanged 1`] = `
+<div>
+  <p
+    data-testid="input-label"
+  >
+    Upload a .png or .jpg image (max 1MB).
+  </p>
+  <input
+    accept="image/png, image/jpeg"
+    type="file"
+  />
+</div>
+`;

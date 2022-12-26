@@ -9,7 +9,10 @@ const customJestConfig = {
   coverageDirectory: 'tests/coverage',
   coveragePathIgnorePatterns: ['./node_modules'],
   moduleDirectories: ['node_modules', '<rootDir>/'],
-  testEnvironment: 'jest-environment-jsdom'
+  testEnvironment: 'jest-environment-jsdom',
+  moduleNameMapper: {
+    uuid: require.resolve('uuid')
+  }
 }
 
 module.exports = createJestConfig(customJestConfig)
