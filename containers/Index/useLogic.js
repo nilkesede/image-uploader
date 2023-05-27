@@ -1,34 +1,34 @@
 import { useState } from 'react'
 
-export default function useLogic(Component) {
-  const [response, setResponse] = useState('')
+export default function useLogic() {
+  const [image, setImage] = useState('')
   const [url, setUrl] = useState('')
 
-  const uploadPhoto = async e => {
-    setResponse('')
+  const uploadImage = async e => {
+    setImage('')
     setUrl('')
 
     const file = e.target.files[0]
-    const formData = new FormData()
-    formData.append('file', file)
+    const body = new FormData()
+    body.append('file', file)
 
-    const resp = await fetch('/api/upload', {
+    const response = await fetch('/api/upload', {
       method: 'POST',
-      body: formData
+      body
     })
 
-    if (resp.ok) {
-      const { data } = await resp.json()
-      setResponse('success')
+    if (response.ok) {
+      const { data } = await response.json()
+      setImage('success')
       setUrl(data)
     } else {
-      setResponse('error')
+      setImage('error')
     }
   }
 
   return {
-    uploadPhoto,
-    response,
+    uploadImage,
+    image,
     url
   }
 }
