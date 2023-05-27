@@ -1,10 +1,10 @@
-import { useState } from 'react'
+import { ChangeEvent, useState } from 'react'
 
 export default function useLogic() {
   const [image, setImage] = useState('')
   const [url, setUrl] = useState('')
 
-  const uploadImage = async e => {
+  const uploadImage = async (e: ChangeEvent<HTMLInputElement>) => {
     setImage('')
     setUrl('')
 
