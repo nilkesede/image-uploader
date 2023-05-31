@@ -1,6 +1,6 @@
 import nodeMocks from 'node-mocks-http'
 
-import upload from '../../../pages/api/upload'
+import upload from '../../../src/pages/api/upload'
 
 jest.mock('multer', () => {
   return () => ({

@@ -3,7 +3,12 @@ module.exports = {
     node: true,
     jest: true
   },
-  extends: ['airbnb-base', 'plugin:prettier/recommended', 'react-app'],
+  extends: [
+    'airbnb-base',
+    'plugin:prettier/recommended',
+    'react-app',
+    'plugin:storybook/recommended'
+  ],
   plugins: ['prettier'],
   rules: {
     'prettier/prettier': 'error',

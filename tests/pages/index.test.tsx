@@ -3,7 +3,7 @@ import '@testing-library/jest-dom'
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 
-import Index from '../../pages/index'
+import Index from '../../src/pages/index'
 
 describe('Index', () => {
   it('renders a text', () => {

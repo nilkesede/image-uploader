@@ -8,7 +8,7 @@ export default function useLogic() {
     setImage('')
     setUrl('')
 
-    const file = e.target.files[0]
+    const file = e.target.files ? e.target.files[0] : ''
     const body = new FormData()
     body.append('file', file)
 
