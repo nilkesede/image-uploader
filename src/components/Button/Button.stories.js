@@ -1,4 +1,4 @@
-import { Button } from '.'
+import Button from '.'
 
 export default {
   title: 'Button',
@@ -6,4 +6,4 @@ export default {
   tags: ['autodocs']
 }
 
-export const Primary = {}
+export const Default = {}
