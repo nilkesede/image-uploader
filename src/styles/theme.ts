@@ -19,3 +19,5 @@ export const darkTheme = {
     text: '#FFFFFF'
   }
 }
+
+export const defaultTheme = lightTheme

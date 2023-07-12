@@ -8,6 +8,6 @@ const Btn = styled.button`
   padding: 10px 15px;
 `
 
-export default function Button() {
-  return <Btn>Choose a file</Btn>
+export default function Button({ text, onClick }) {
+  return <Btn onClick={onClick}>{text}</Btn>
 }
