@@ -1,4 +1,4 @@
-import useLogic from './useLogic'
+import useLogic from './logic'
 
 export default function Upload() {
   const { uploadImage, image, url } = useLogic()
