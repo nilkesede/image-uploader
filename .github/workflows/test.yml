@@ -2,7 +2,7 @@ name: Test
 on: [push]
 jobs:
     lint:
-        runs-on: ubuntu-lastest
+        runs-on: ubuntu-latest
 
         strategy:
             matrix:
