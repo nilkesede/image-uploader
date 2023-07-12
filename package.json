@@ -1,5 +1,5 @@
 {
-  "name": "short-url",
+  "name": "image-uploader",
   "version": "0.0.1",
   "scripts": {
     "build": "next build",
