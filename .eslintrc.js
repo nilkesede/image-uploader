@@ -7,7 +7,8 @@ module.exports = {
     'airbnb-base',
     'plugin:prettier/recommended',
     'react-app',
-    'plugin:storybook/recommended'
+    'plugin:storybook/recommended',
+    'plugin:@next/next/recommended'
   ],
   plugins: ['prettier'],
   rules: {

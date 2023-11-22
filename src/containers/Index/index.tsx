@@ -1,8 +1,11 @@
 import { useRef } from 'react'
 import { useLocalStorage } from 'usehooks-ts'
-import useLogic from './logic'
-import Button from '../../components/Button'
+import Image from 'next/image'
+
 import { defaultTheme, darkTheme } from '../../styles/theme'
+import Button from '../../components/Button'
+import Container from '../../components/Container'
+import useLogic from './logic'
 
 export default function Index() {
   const { uploadImage, image, url } = useLogic()
@@ -13,8 +16,9 @@ export default function Index() {
   }
 
   return (
-    <>
-      <p data-testid="input-label">Upload a .png or .jpg image (max 1MB).</p>
+    <Container>
+      <h1>Upload your image</h1>
+      <p data-testid="input-label">File should be Jpeg, Png,...</p>
       <Button label="Chose a file" onClick={onButtonClick} />
       <input
         onChange={uploadImage}
@@ -26,13 +30,13 @@ export default function Index() {
       {image && <p>{image}</p>}
       {url && (
         <p>
-          <img src={url} alt="uploaded" width="500" />
+          <Image src={url} alt="uploaded" width="500" />
         </p>
       )}
       <p>
         <button onClick={() => setTheme(defaultTheme)}>Default Theme</button>
         <button onClick={() => setTheme(darkTheme)}>Dark Theme</button>
       </p>
-    </>
+    </Container>
   )
 }

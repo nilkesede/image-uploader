@@ -17,6 +17,6 @@ describe('Index', () => {
     const label = screen.getByTestId('input-label')
 
     expect(label).toBeInTheDocument()
-    expect(label).toHaveTextContent('Upload a .png or .jpg image (max 1MB).')
+    expect(label).toHaveTextContent('File should be Jpeg, Png,..')
   })
 })
