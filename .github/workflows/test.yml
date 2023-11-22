@@ -37,7 +37,7 @@ jobs:
         env:
             CI_BUILD_ID: ${{ github.run_id }}
             CI_NAME: github
-            GIT_BRANCH: development
+            GIT_BRANCH: main 
             GIT_COMMIT_SHA: ${{ github.sha }}
             CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         run: |
