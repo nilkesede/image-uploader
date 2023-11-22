@@ -1,3 +1,4 @@
+import { MouseEventHandler } from 'react'
 import styled from 'styled-components'
 
 const Btn = styled.button`
@@ -8,6 +9,12 @@ const Btn = styled.button`
   padding: 10px 15px;
 `
 
-export default function Button({ text, onClick }) {
-  return <Btn onClick={onClick}>{text}</Btn>
+export default function Button({
+  label,
+  onClick
+}: {
+  label: String
+  onClick: MouseEventHandler
+}) {
+  return <Btn onClick={onClick}>{label}</Btn>
 }

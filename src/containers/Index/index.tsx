@@ -15,7 +15,7 @@ export default function Index() {
   return (
     <>
       <p data-testid="input-label">Upload a .png or .jpg image (max 1MB).</p>
-      <Button text="Chose a file" onClick={onButtonClick} />
+      <Button label="Chose a file" onClick={onButtonClick} />
       <input
         onChange={uploadImage}
         type="file"
