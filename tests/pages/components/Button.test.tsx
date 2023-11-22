@@ -8,16 +8,19 @@ import Button from '../../../src/components/Button'
 import { defaultTheme } from '../../../src/styles/theme'
 
 describe('Index', () => {
-  it('renders a text', () => {
+  it('renders and click a button', () => {
     const onClickButton = jest.fn()
     render(
       <ThemeProvider theme={defaultTheme}>
         <Button label="Choose a file" onClick={onClickButton} />
       </ThemeProvider>
     )
-    const label = screen.getByTestId('button')
+    const button = screen.getByTestId('button')
 
-    expect(label).toBeInTheDocument()
-    expect(label).toHaveTextContent('Choose a file')
+    expect(button).toBeInTheDocument()
+    expect(button).toHaveTextContent('Choose a file')
+
+    button.click()
+    expect(onClickButton).toHaveBeenCalled()
   })
 })
