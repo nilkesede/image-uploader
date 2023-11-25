@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 import { defaultTheme, darkTheme } from '../../styles/theme'
 import Button from '../../components/Button'
-import Container from '../../components/Container'
+import Card from '../../components/Card'
 import useLogic from './logic'
 
 export default function Index() {
@@ -16,7 +16,7 @@ export default function Index() {
   }
 
   return (
-    <Container>
+    <Card>
       <h1>Upload your image</h1>
       <p data-testid="input-label">File should be Jpeg, Png,...</p>
       <Button label="Chose a file" onClick={onButtonClick} />
@@ -37,6 +37,6 @@ export default function Index() {
         <button onClick={() => setTheme(defaultTheme)}>Default Theme</button>
         <button onClick={() => setTheme(darkTheme)}>Dark Theme</button>
       </p>
-    </Container>
+    </Card>
   )
 }
