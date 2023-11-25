@@ -1,14 +1,16 @@
-import { ChangeEvent, useState } from 'react'
+import { useState } from 'react'
 
 export default function useLogic() {
-  const [image, setImage] = useState('')
+  const [status, setStatus] = useState('')
   const [url, setUrl] = useState('')
 
-  const uploadImage = async (e: ChangeEvent<HTMLInputElement>) => {
-    setImage('')
+  const uploadImage = async (files: FileList | null) => {
+    setStatus('')
     setUrl('')
 
-    const file = e.target.files ? e.target.files[0] : ''
+    const file = files ? files[0] : ''
+    if (!file) return
+
     const body = new FormData()
     body.append('file', file)
 
@@ -19,16 +21,16 @@ export default function useLogic() {
 
     if (response.ok) {
       const { data } = await response.json()
-      setImage('success')
+      setStatus('success')
       setUrl(data)
     } else {
-      setImage('error')
+      setStatus('error')
     }
   }
 
   return {
     uploadImage,
-    image,
+    status,
     url
   }
 }

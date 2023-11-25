@@ -8,7 +8,7 @@ export default createGlobalStyle`
     color: ${({ theme }) => theme.colors.text};
     background-color: ${({ theme }) => theme.colors.background};
   }
-  #__next {
+  #main-container{
     height: 100vh;
     display: flex;
     flex-wrap: wrap;

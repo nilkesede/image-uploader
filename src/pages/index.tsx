@@ -1,3 +1,3 @@
-import Index from '../containers/Index'
+import Uploader from '../containers/Uploader'
 
-export default Index
+export default Uploader
