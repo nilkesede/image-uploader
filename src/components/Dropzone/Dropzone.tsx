@@ -41,7 +41,7 @@ export default function Dropzone({ onDrop }: { onDrop: Function }) {
       onDragLeave={e => handleDragLeave(e)}
       onDrop={e => handleDrop(e)}
     >
-      <Image withLabel={true} />
+      <Image $withLabel={true} $isActive={dragStatus === 'enter'} />
       <br />
       <br />
       <StyledLabel>Drag & Drop your image here</StyledLabel>
