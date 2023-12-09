@@ -7,7 +7,8 @@ export const lightTheme: DefaultTheme = {
     background: '#FFFFFF',
     primary: '#2F80ED',
     inverse: '#FFFFFF',
-    text: '#4F4F4F'
+    text: '#4F4F4F',
+    muted: '#828282'
   }
 }
 

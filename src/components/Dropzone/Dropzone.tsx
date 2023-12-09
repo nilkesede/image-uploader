@@ -1,17 +1,27 @@
-export default function Dropzone({
-  onDrop,
-  children
-}: {
-  onDrop: Function
-  children: React.ReactNode
-}) {
+import { useState } from 'react'
+import styled from 'styled-components'
+
+import Image from '../Image'
+import Label from '../Label'
+
+const StyledLabel = styled(Label)`
+  margin-top: -90px;
+  margin-bottom: 40px;
+  color: ${({ theme }) => theme.colors.muted};
+`
+
+export default function Dropzone({ onDrop }: { onDrop: Function }) {
+  const [dragStatus, setDragStatus] = useState('none')
+
   const handleDragEnter = e => {
     e.preventDefault()
     e.stopPropagation()
+    setDragStatus('enter')
   }
   const handleDragLeave = e => {
     e.preventDefault()
     e.stopPropagation()
+    setDragStatus('none')
   }
   const handleDragOver = e => {
     e.preventDefault()
@@ -21,6 +31,7 @@ export default function Dropzone({
   const handleDrop = e => {
     e.preventDefault()
     e.stopPropagation()
+    setDragStatus('none')
     onDrop(e.dataTransfer.files)
   }
   return (
@@ -30,7 +41,10 @@ export default function Dropzone({
       onDragLeave={e => handleDragLeave(e)}
       onDrop={e => handleDrop(e)}
     >
-      {children}
+      <Image withLabel={true} />
+      <br />
+      <br />
+      <StyledLabel>Drag & Drop your image here</StyledLabel>
     </div>
   )
 }

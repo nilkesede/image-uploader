@@ -7,6 +7,7 @@ declare module 'styled-components' {
       primary: string
       inverse: string
       text: string
+      muted: string
     }
   }
 }
