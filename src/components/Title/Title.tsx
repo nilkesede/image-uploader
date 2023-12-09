@@ -7,6 +7,11 @@ const H1 = styled.h1`
   font-weight: 500;
 `
 
-export default function Title({ children }: { children: React.ReactNode }) {
-  return <H1>{children}</H1>
+export default function Title({
+  children,
+  ...props
+}: {
+  children: React.ReactNode
+}) {
+  return <H1 {...props}>{children}</H1>
 }

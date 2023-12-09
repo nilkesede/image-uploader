@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import styled from 'styled-components'
 
 import Button from '../../components/Button'
 import Card from '../../components/Card'
@@ -6,12 +7,31 @@ import Title from '../../components/Title'
 import Label from '../../components/Label'
 import Dropzone from '../../components/Dropzone'
 import useLogic from './logic'
+import Loading from '../../components/Loading'
+
+const LeftTitle = styled(Title)`
+  text-align: center;
+`
+
+const StyledLoading = styled(Loading)`
+  width: 350px;
+`
 
 export default function Uploader() {
-  const { uploadImage } = useLogic()
+  const { status, uploadImage } = useLogic()
   const inputFile = useRef<HTMLInputElement | null>(null)
   const onButtonClick = () => {
     inputFile.current && inputFile.current.click()
+  }
+
+  if (status === 'loading') {
+    return (
+      <Card>
+        <LeftTitle>Uploading...</LeftTitle>
+        <br />
+        <StyledLoading label="Uploading..." />
+      </Card>
+    )
   }
 
   return (

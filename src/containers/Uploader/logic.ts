@@ -14,6 +14,7 @@ export default function useLogic() {
     const body = new FormData()
     body.append('file', file)
 
+    setStatus('loading')
     const response = await fetch('/api/upload', {
       method: 'POST',
       body

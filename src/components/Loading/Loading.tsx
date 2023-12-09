@@ -30,6 +30,6 @@ const ProgressBar = styled.div`
   }
 `
 
-export default function Loading({ label }: { label: string }) {
-  return <ProgressBar aria-label={label} />
+export default function Loading({ label, ...props }: { label: string }) {
+  return <ProgressBar {...props} aria-label={label} />
 }
