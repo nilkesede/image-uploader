@@ -9,6 +9,7 @@ declare module 'styled-components' {
       inverse: string
       text: string
       muted: string
+      border: string
     }
   }
 }

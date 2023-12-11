@@ -16,13 +16,14 @@ const Btn = styled.button`
 
 export default function Button({
   label,
-  onClick
+  onClick,
+  ...props
 }: {
   label: String
   onClick: MouseEventHandler
 }) {
   return (
-    <Btn data-testid="button" onClick={onClick}>
+    <Btn data-testid="button" onClick={onClick} {...props}>
       {label}
     </Btn>
   )

@@ -9,6 +9,15 @@ const Wrapper = styled.div`
   border-radius: 12px;
 `
 
-export default function Card({ children }: { children: React.ReactNode }) {
-  return <Wrapper data-testid="card-wrapper">{children}</Wrapper>
+export default function Card({
+  children,
+  ...props
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <Wrapper {...props} data-testid="card-wrapper">
+      {children}
+    </Wrapper>
+  )
 }

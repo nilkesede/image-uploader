@@ -4,21 +4,26 @@ import multer from 'multer'
 import multerS3 from 'multer-s3'
 import { v4 as uuid } from 'uuid'
 
-const { ACCESS_KEY, SECRET_KEY, REGION, BUCKET_NAME } = process.env
+const {
+  AWS_ACCESS_KEY,
+  AWS_SECRET_KEY,
+  NEXT_PUBLIC_AWS_REGION: AWS_REGION,
+  NEXT_PUBLIC_AWS_BUCKET: AWS_BUCKET
+} = process.env
 
 const s3Client = new S3Client({
   credentials: {
-    accessKeyId: `${ACCESS_KEY}`,
-    secretAccessKey: `${SECRET_KEY}`
+    accessKeyId: `${AWS_ACCESS_KEY}`,
+    secretAccessKey: `${AWS_SECRET_KEY}`
   },
-  region: REGION
+  region: AWS_REGION
 })
 
 const upload = promisify(
   multer({
     storage: multerS3({
       s3: s3Client,
-      bucket: `${BUCKET_NAME}`,
+      bucket: `${AWS_BUCKET}`,
       acl: 'public-read',
       contentType: multerS3.AUTO_CONTENT_TYPE,
       key: (_, __, cb) => cb(null, uuid())

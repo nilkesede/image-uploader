@@ -4,11 +4,11 @@ import { normalize } from 'styled-normalize'
 export default createGlobalStyle`
   ${normalize}
   body {
-    font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: ${({ theme }) => theme.colors.text};
     background-color: ${({ theme }) => theme.colors.background};
   }
-  #main-container{
+  #main-container {
     height: 100vh;
     display: flex;
     flex-wrap: wrap;
