@@ -5,10 +5,10 @@ import multerS3 from 'multer-s3'
 import { v4 as uuid } from 'uuid'
 
 const {
-  AWS_ACCESS_KEY,
-  AWS_SECRET_KEY,
-  NEXT_PUBLIC_AWS_REGION: AWS_REGION,
-  NEXT_PUBLIC_AWS_BUCKET: AWS_BUCKET
+  APP_AWS_ACCESS_KEY: AWS_ACCESS_KEY,
+  APP_AWS_SECRET_KEY: AWS_SECRET_KEY,
+  NEXT_PUBLIC_APP_AWS_REGION: AWS_REGION,
+  NEXT_PUBLIC_APP_AWS_BUCKET: AWS_BUCKET
 } = process.env
 
 const s3Client = new S3Client({
