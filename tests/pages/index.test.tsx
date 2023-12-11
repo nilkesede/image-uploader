@@ -7,6 +7,8 @@ import { ThemeProvider } from 'styled-components'
 import Uploader from '../../src/pages/index'
 import { defaultTheme } from '../../src/styles/theme'
 
+jest.mock('next/router', () => jest.requireActual('next-router-mock'))
+
 describe('Index', () => {
   it('renders a text', () => {
     render(
