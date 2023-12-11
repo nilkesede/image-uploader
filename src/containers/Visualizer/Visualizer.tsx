@@ -46,19 +46,21 @@ export default function Visualizer() {
   const { url } = useImage(id)
 
   return (
-    <StyledCard>
-      <NextImage
-        src="/check_circle.svg"
-        alt="Uploaded Successfully!"
-        width="42"
-        height="42"
-      />
-      <StyledTitle>Uploaded Successfully!</StyledTitle>
-      <Image src={url} alt="Image uploaded" />
-      <LinkWrapper>
-        {url.slice(0, 37)}...
-        <StyledButton onClick={() => copyLink(url)} label="Copy Link" />
-      </LinkWrapper>
-    </StyledCard>
+    id && (
+      <StyledCard>
+        <NextImage
+          src="/check_circle.svg"
+          alt="Uploaded Successfully!"
+          width="42"
+          height="42"
+        />
+        <StyledTitle>Uploaded Successfully!</StyledTitle>
+        <Image src={url} alt="Image uploaded" />
+        <LinkWrapper>
+          {url.slice(0, 37)}...
+          <StyledButton onClick={() => copyLink(url)} label="Copy Link" />
+        </LinkWrapper>
+      </StyledCard>
+    )
   )
 }
