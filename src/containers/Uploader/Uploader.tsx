@@ -6,15 +6,18 @@ import Card from '../../components/Card'
 import Title from '../../components/Title'
 import Label from '../../components/Label'
 import Dropzone from '../../components/Dropzone'
+import Alert from '../../components/Alert'
+
 import useLogic from './logic'
 import Loading from '../../components/Loading'
 
-const LeftTitle = styled(Title)`
-  text-align: center;
-`
-
 const StyledLoading = styled(Loading)`
   width: 350px;
+`
+
+const StyledAlert = styled(Alert)`
+  margin-top: -10px;
+  margin-bottom: 15px;
 `
 
 export default function Uploader() {
@@ -27,7 +30,7 @@ export default function Uploader() {
   if (status === 'loading') {
     return (
       <Card>
-        <LeftTitle>Uploading...</LeftTitle>
+        <Title>Uploading...</Title>
         <br />
         <StyledLoading label="Uploading..." />
       </Card>
@@ -36,6 +39,8 @@ export default function Uploader() {
 
   return (
     <Card>
+      {status === 'error' && <StyledAlert>Something went wrong</StyledAlert>}
+
       <Title>Upload your image</Title>
       <br />
       <Label data-testid="input-label">File should be Jpeg, Png...</Label>
